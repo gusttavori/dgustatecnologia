@@ -1,0 +1,250 @@
+/* >= 768px: Tablets e notebooks pequenos */
+@media (min-width: 768px) {
+
+    #webcrumbs {
+    margin-bottom: 0; /* ou remova */
+}
+
+  .card-container {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+  }
+
+#webcrumbs-tech {
+  position: relative;
+  top: 100px;              /* substitui o margin-top negativo */
+  margin: 0 auto 10px;     /* mantém a centralização e espaçamento inferior */
+  max-width: 1200px;        /* bom para layout fluido */
+  padding: 0 1rem;  
+}
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .project-card.reverse {
+    flex-direction: row-reverse;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .description-eu {
+    font-size: 1rem;
+  }
+}
+
+/* >= 1024px: Desktop médio */
+@media (min-width: 1024px) {
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* <= 992px: Notebook com zoom ou menor resolução */
+@media (max-width: 992px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+}
+
+/* <= 768px: Tablets e celulares grandes */
+@media (max-width: 768px) {
+.projetos {
+  position: relative;
+  top: -200px;              /* substitui o margin-top negativo */
+  margin: 0 auto -150px;     /* mantém a centralização e espaçamento inferior */
+  max-width: 1200px;        /* bom para layout fluido */
+  padding: 0 1rem;          /* garante espaço interno lateral em telas pequenas */
+}
+
+    .project-image {
+    display: none;
+  }
+
+  .title-tech{
+    font-size: 20px !important;
+  }
+
+    #webcrumbs-tech {
+    margin-top: 8rem;
+    margin-bottom: 0; /* ou remova */
+}
+  
+  #webcrumbs {
+    margin-top: 26rem;
+    margin-bottom: 0; /* ou remova */
+}
+.hero {
+  padding: 250px 0 20px; /* Reduzi o padding-bottom de 80px para 20px */
+}
+
+.hero-image {
+  width: 100px;
+  right: 2rem;
+  bottom: 10px; /* ajuste pequeno e positivo */
+  position: absolute;
+  -webkit-transform: translateZ(0);
+}
+
+
+
+  .hero h1,
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p,
+  .hero-content p {
+    font-size: 1rem;
+    margin-bottom: 6rem;
+  }
+
+  .hero-image {
+    width: 100px;
+    right: 2rem;
+    top: 250px;
+    bottom: 10px;
+    position: absolute;
+    -webkit-transform: translateZ(0); /* Corrige bugs visuais no Safari */
+  }
+
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .title-eu {
+    font-size: 2rem !important;
+  }
+
+  .subtitle-eu {
+    margin-top: 10px;
+    font-size: 0.9rem !important;
+  }
+  .description-eu {
+    font-size: 1rem !important;
+  }
+
+    .projetos-title {
+    font-size: 20px !important;
+  }
+
+  .project-title {
+    font-size: 2rem;
+  }
+
+  .project-description {
+    font-size: 0.95rem;
+  }
+
+  .container,
+  .container-tech {
+    padding: 0 1rem;
+  }
+
+    .footer-logo img {
+        margin-bottom: 10px;
+      max-width: 100px;
+    }
+  
+    .footer-line{
+      position: relative;
+      left: 0;
+  width: 200px;         /* comprimento da linha */
+  height: 1px;          /* espessura da linha */
+  background-color: #000;
+  margin: 0 auto;
+    }
+  
+    .social-icons {
+      position: static;
+      margin-left: 170px;
+      margin-top: 20px;
+    }
+  
+    footer {
+      flex-direction: column;
+      height: auto;
+      padding: 40px 20px;
+    }
+}
+
+/* <= 576px: Celulares médios */
+@media (max-width: 576px) {
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .tech-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+
+  .title-eu {
+    font-size: 2.5rem;
+  }
+
+  .social-eu {
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  .project-info-organix,
+  .project-info-cultura {
+    max-width: 100%;
+    padding: 1.5rem;
+  }
+
+  .project-image {
+    max-width: 100%;
+    padding: 2rem;
+  }
+
+  .footer-logo {
+    right: 0;
+  }
+
+  .social-icons {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* <= 480px: Celulares pequenos */
+@media (max-width: 480px) {
+  .project-card {
+    margin-bottom: 2rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-info-organix,
+  .project-info-cultura {
+    padding: 1rem;
+  }
+
+  .project-title {
+    font-size: 1.8rem;
+  }
+
+  .project-description {
+    font-size: 0.9rem;
+  }
+
+  .icon-button {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}
