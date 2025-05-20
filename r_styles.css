@@ -3,7 +3,7 @@
 
   .projetos {
   position: relative;
-  top: -200px;              /* substitui o margin-top negativo */
+  top: -150px;              /* substitui o margin-top negativo */
   margin: 0 auto -150px;     /* mantém a centralização e espaçamento inferior */
   max-width: 1200px;        /* bom para layout fluido */
   padding: 0 1rem;          /* garante espaço interno lateral em telas pequenas */
