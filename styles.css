@@ -1,9 +1,9 @@
 /* Variáveis de cores, tipografia e espaçamento */
 :root {
     --color-background: #000000;
-    --color-background-alt: #0a0a1a;
+    --color-background-alt: #070707;
     --color-primary: #D7E626;
-    --color-text: #ffffff; /* Adicionada variável de texto que estava faltando */
+    --color-text: #ffffff;
     --font-family: 'Red Rose', sans-serif;
     
     /* Variáveis de espaçamento */
@@ -29,10 +29,12 @@ body {
 }
 
 .container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--spacing-md);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  display: flex; /* Adicionado para usar Flexbox */
+  flex-direction: column; /* Organiza os elementos verticalmente */
+  align-items: center; /* Centraliza os itens na horizontal */
 }
 
 a {
@@ -92,14 +94,15 @@ header {
     display: inline-block;
 }
 
-/* Hero Section */
 .hero {
     min-height: 100vh;
-    padding-top: calc(150px + var(--spacing-xl));
+    padding-top: calc(200px + var(--spacing-xl));
     display: flex;
+    flex-direction: column; /* Stacks children vertically */
     align-items: center;
     position: relative;
     overflow: hidden;
+    justify-content: flex-start; /* Aligns content to the top */
 }
 
 .hero::before {
@@ -113,11 +116,6 @@ header {
     z-index: -1;
 }
 
-.hero-content {
-    max-width: 800px;
-    animation: fadeIn 1s ease-out forwards;
-}
-
 .hero h1 {
     font-size: 2.75rem;
     font-weight: 500;
@@ -127,11 +125,32 @@ header {
     color: white;
 }
 
+.hero-content {
+    position: relative;
+    max-width: 800px;
+    height: 500px;
+    right: 200px;
+    animation: fadeIn 1s ease-out forwards;
+}
+
 .hero-content p {
     color: white;
     font-weight: 300;
     font-size: 1.5rem;
     margin-bottom: 20rem;
+}
+
+.hero-image {
+    position: absolute;
+    right: 12rem;
+    top: 30%;
+    transform: translateY(-50%);
+    max-width: 100%;
+    width: 200px;
+    height: auto;
+    filter: sepia(95%) hue-rotate(40deg) saturate(500%) brightness(50%);
+    opacity: 0.8;
+    z-index: -1;
 }
 
 .social-links {
@@ -156,31 +175,18 @@ header {
     transform: translateY(-3px);
 }
 
-.hero-image {
-    position: absolute;
-    right: 9rem;
-    top: 20%;
-    transform: translateY(-50%);
-    max-width: 100%;
-    width: 200px;
-    height: auto;
-    filter: sepia(95%) hue-rotate(40deg) saturate(500%) brightness(50%);
-    opacity: 0.8;
-    z-index: -1;
-}
-
 /* Seção Sobre */
 .section-container {
-    margin: -3rem 0 3rem 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 150px;
 }
 
 .card-container {
     background-color: var(--color-primary);
     border-radius: 1.5rem;
-    max-width: 100rem;
+    max-width: 70rem;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr;
@@ -256,30 +262,22 @@ header {
 }
 
 /* Seção Tecnologias */
-#webcrumbs-tech {
-    min-height: 120vh;
+#tecnologias {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-#webcrumbs {
-    height: auto;
-    margin-top: 26rem;
-    margin-bottom: -10000px; /* ou remova */
-}
-
-#webcrumbs-tech {
-  position: relative;
-  top: -50px;              /* substitui o margin-top negativo */
-  margin: 0 auto 100px;     /* mantém a centralização e espaçamento inferior */
-  max-width: 1200px;        /* bom para layout fluido */
-  padding: 0 1rem;  
+    position: relative;
+    top: 150px;
+    margin: 0 auto 100px;
+    max-width: 1200px;
+    padding: 0 1rem;
 }
 
 .container-tech h2 {
     color: white;
     font-size: 24px;
+    font-family: var(--font-family);
     margin-bottom: 3rem;
     text-align: center;
 }
@@ -292,28 +290,39 @@ header {
     letter-spacing: 0.1em;
 }
 
+.tech-category-section {
+    width: 100%;
+    margin-bottom: var(--spacing-lg);
+}
+
+.tech-category-section h3 {
+    color: #D7E626;
+    font-size: 1rem;
+    margin-bottom: var(--spacing-sm);
+}
+
 .grid {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: var(--spacing-md);
     width: 100%;
     max-width: 80rem;
-    margin-bottom: var(--spacing-md);
-}
-
-.text-db {
-    color: #fff; 
-    margin-bottom: 1rem;
 }
 
 .card {
+    flex-basis: 30%;
+    max-width: 300px;
+    min-width: 200px;
     border: 3.25px solid #eaff00;
     border-radius: 0.75rem;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    text-align: center;
     justify-content: center;
     transition: all 0.3s;
-    padding: 2rem;
+    padding: 1.75rem;
 }
 
 .card-base:hover {
@@ -321,40 +330,42 @@ header {
     transform: translateY(-5px);
 }
 
-.card-node, .card-express, .card-mongo, .card-firebase {
-    margin-bottom: var(--spacing-sm);
-}
-
 .card-icon {
     width: 3rem;
     height: 3rem;
-    margin-right: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    margin-top: 0.25rem;
     fill: white;
 }
 
 .js-icon {
-    width: 5rem;
-    height: auto;
-    padding: 15px;
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: var(--spacing-sm);
+    fill: white;
 }
 
-.express-icon, .node-icon {
-    width: 12rem;
+.react-icon {
+    width: 3.4rem;
+    height: 3rem;
+    margin-bottom: var(--spacing-sm);
+    filter: brightness(0) invert(1);
+}
+
+.express-icon, .node-icon, .python-icon {
+    width: 10rem;
     height: auto;
     filter: brightness(0) invert(1);
-    padding: 20px;
 }
 
 .mongo-icon {
-    width: 12rem;
-    height: 4rem;
-    margin-right: 0.75rem;
+    width: 10rem;
+    height: auto;
 }
 
 .firebase-icon {
-    width: 12rem;
-    height: 6.75rem;
-    margin-right: 0.5rem;
+    width: 10rem;
+    height: auto;
 }
 
 .card-title {
@@ -363,79 +374,78 @@ header {
     font-weight: bold;
 }
 
+
 /* Seção Projetos */
 .projetos {
-  position: relative;
-  top: -300px;              /* substitui o margin-top negativo */
-  margin: 0 auto -150px;     /* mantém a centralização e espaçamento inferior */
-  max-width: 1200px;        /* bom para layout fluido */
-  padding: 0 1rem;          /* garante espaço interno lateral em telas pequenas */
+    position: relative;
+    top: 300px;
+    margin: 0 auto 150px;
+    max-width: 1200px;
+    padding: 0 1rem;
 }
-
 
 .titulo {
     color: #ffffff;
     text-align: center;
     font-size: 24px;
+    font-family: var(--font-family);
     font-weight: bold;
     text-transform: uppercase;
-    margin: 15rem 0 5rem 0;
+    margin: 18rem 0 3rem 0;
     letter-spacing: 1px;
 }
 
 .project-card {
     display: flex;
-    flex-direction: column;
     margin-bottom: 3rem;
     position: relative;
     overflow: hidden;
     align-items: center;
     justify-content: center;
+    gap: var(--spacing-md);
 }
 
+.project-card.reverse {
+    flex-direction: row-reverse;
+}
+
+.project-info-organix, .project-info-cultura {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 20px;
+    padding: 2rem;
+    z-index: 1;
+    flex: 1;
+    max-width: 50%;
+}
 
 .project-info-organix {
     background-image: linear-gradient(to left, rgb(0, 0, 0), rgba(234, 255, 0, 0.25));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(5px);
-    border-radius: 20px;
-    padding: 2rem;
-    z-index: 1;
-    flex: 1;
-    max-width: 50%;
 }
-
-.project-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px; /* opcional: controla a distância entre texto e botão */
-}
-
-.botao {
-  padding: 5px 10px;
-  background-color: #D7E626;
-  color: rgb(0, 0, 0);
-  text-decoration: none;
-  border-radius: 4px;
-  font-size: 12px;
-  transition: background-color 0.3s;
-}
-
-.botao:hover {
-  background-color: #dfdb03;
-}
-
 
 .project-info-cultura {
     background-image: linear-gradient(to right, rgb(0, 0, 0), rgba(234, 255, 0, 0.25));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(5px);
-    border-radius: 20px;
-    padding: 2rem;
-    z-index: 1;
-    flex: 1;
-    max-width: 50%;
+}
+
+.project-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.botao {
+    padding: 5px 10px;
+    background-color: #D7E626;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 12px;
+    transition: background-color 0.3s;
+}
+
+.botao:hover {
+    background-color: #dfdb03;
 }
 
 .project-tag {
@@ -470,10 +480,181 @@ header {
     flex: 1;
 }
 
-.project-logo {
+.project-image img {
     max-width: 100%;
     height: auto;
-    filter: brightness(0);
+    border-radius: 10px;
+    object-fit: cover;
+    filter: brightness(0) invert(0);
+}
+
+.vibz-image {
+  width: 60%;
+  height: auto;
+  margin: 0 auto;
+  display: block; /* Adicione esta linha */
+}
+
+/* Estilo geral da seção do formulário */
+#consultoria {
+    color: var(--color-text);
+    padding: var(--spacing-lg) var(--spacing-md);
+    font-family: var(--font-family);
+    display: flex;
+    justify-content: center; /* Centraliza a caixa do formulário na seção */
+    margin-top: 250px;
+}
+
+/* Container do formulário */
+.consultoria-form {
+    max-width: 1050px; /* Limita a largura do formulário para melhor legibilidade */
+    width: 100%;
+    padding: var(--spacing-md);
+    background-color: var(--color-background-alt);
+    border: #D7E626 2px solid;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra sutil para destacar */
+}
+
+/* Título do formulário */
+.consultoria-form h2 {
+    color: var(--color-primary);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.consultoria-form p {
+    color: var(--color-text);
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Estilo para cada grupo de campo (label + input/select) */
+.form-group {
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo para os labels (rótulos) */
+.form-group label {
+    margin-bottom: var(--spacing-xs);
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* Estilo para um select customizado */
+/* Código CSS anterior se aplica a todos os dropdowns */
+.custom-select {
+    position: relative;
+    width: 100%;
+}
+.select-styled {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--color-background-alt);
+    color: var(--color-text);
+    border: 2px solid #333;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.select-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: var(--color-background-alt);
+    border: 2px solid #333;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+.select-styled:hover,
+.select-styled.active {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(215, 230, 38, 0.3);
+}
+.select-styled.active + .select-options {
+    display: block;
+}
+.select-options li {
+    padding: var(--spacing-sm);
+    color: var(--color-text);
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.select-options li:hover {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+}
+.select-options li.selected {
+    background-color: #333;
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+/* Estilo para os campos de entrada de texto e seleção */
+.consultoria-form input[type="text"],
+.consultoria-form select,
+.consultoria-form textarea {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--color-background-alt);
+    color: var(--color-text);
+    border: 2px solid #333;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: var(--font-family);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito de foco (quando o campo está ativo) */
+.consultoria-form input[type="text"]:focus,
+.consultoria-form select:focus,
+.consultoria-form textarea:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(215, 230, 38, 0.3); /* Sombra para o foco */
+}
+
+/* Estilo para a textarea */
+.consultoria-form textarea {
+    resize: vertical; /* Permite redimensionar apenas verticalmente */
+    min-height: 150px;
+}
+
+/* Estilo para o botão de envio */
+.form-button {
+    width: 12rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-family: var(--font-family);
+    font-weight: bold;
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Efeito hover no botão */
+.form-button:hover {
+    background-color: #e6f05a; /* Uma cor um pouco mais clara para o hover */
+    transform: translateY(-2px);
 }
 
 /* Footer */
@@ -492,45 +673,49 @@ footer {
     z-index: 9999;
 }
 
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    width: 100%;
+    max-width: 1200px;
+}
+
 .footer-logo {
-    position: relative;
-    right: 120px;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .footer-logo-img {
     filter: brightness(0);
-    max-width: 10%;
+    max-width: 100px;
     height: auto;
 }
 
 .social-icons {
-    color: rgb(0, 0, 0);
-    position: absolute;
-    bottom: 57px;
-    left: 60%;
-    transform: translateX(-50%);
     display: flex;
-    justify-content: center;
+    gap: var(--spacing-sm);
+    align-items: center;
 }
 
 .social-icons a {
-    color: inherit;
+    color: #000000;
     text-decoration: none;
-    margin: 0 12px;
+    font-size: 34px;
+    transition: all 0.3s ease;
 }
 
-.social-icons i {
-    font-size: 34px;
-    color: #000000;
+.social-icons a:hover {
+    color: rgba(0, 0, 0, 0.7);
 }
 
 .footer-line {
-    position: absolute;
-    left: 51%;
     width: 1.25px;
     height: 100px;
     background-color: rgb(0, 0, 0);
+    margin: 0 var(--spacing-md);
 }
 
 /* Animações */
@@ -545,18 +730,18 @@ footer {
     }
 }
 
-.tech-category {
+.tech-category-section {
     animation: fadeIn 1s ease-out forwards;
 }
 
-.tech-category:nth-child(2) {
+.tech-category-section:nth-child(2) {
     animation-delay: 0.2s;
 }
 
-.tech-category:nth-child(3) {
+.tech-category-section:nth-child(3) {
     animation-delay: 0.4s;
 }
 
-.tech-category:nth-child(4) {
+.tech-category-section:nth-child(4) {
     animation-delay: 0.6s;
 }

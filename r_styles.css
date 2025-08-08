@@ -3,15 +3,12 @@
 
   .projetos {
   position: relative;
-  top: -150px;              /* substitui o margin-top negativo */
+  top: -10px;        
   margin: 0 auto -150px;     /* mantém a centralização e espaçamento inferior */
   max-width: 1200px;        /* bom para layout fluido */
   padding: 0 1rem;          /* garante espaço interno lateral em telas pequenas */
 }
 
-    #webcrumbs {
-    margin-bottom: 0; /* ou remova */
-}
 
   .card-container {
     display: grid;
@@ -93,39 +90,43 @@
     margin-top: 26rem;
     margin-bottom: 0; /* ou remova */
 }
-.hero {
-  padding: 250px 0 20px; /* Reduzi o padding-bottom de 80px para 20px */
-}
+    .hero {
+        /* Adiciona centralização vertical ao hero principal */
+        justify-content: center;
+        padding-top: calc(100px + var(--spacing-md));
+    }
 
-.hero-image {
-  width: 100px;
-  right: 2rem;
-  bottom: 10px; /* ajuste pequeno e positivo */
-  position: absolute;
-  -webkit-transform: translateZ(0);
-}
+    .hero .container {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
 
+    .hero-content {
+        width: 70%;
+        margin-left: 350px;
+        margin-top: 100px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem; /* Reduz o tamanho da fonte para telas menores */
+    }
+    
+    .hero-content p {
+        font-size: 1.1rem; /* Reduz o tamanho da fonte */
+    }
+    
+    .hero-image {
+        max-width: 250px; /* Limita a largura da imagem */
+    }
 
-
-  .hero h1,
-  .hero-content h1 {
-    font-size: 1.8rem;
-  }
-
-  .hero p,
-  .hero-content p {
-    font-size: 1rem;
-    margin-bottom: 6rem;
-  }
-
-  .hero-image {
-    width: 100px;
-    right: 2rem;
-    top: 250px;
-    bottom: 10px;
-    position: absolute;
-    -webkit-transform: translateZ(0); /* Corrige bugs visuais no Safari */
-  }
+    /* Outros ajustes que você já tinha podem ser mantidos ou adaptados */
+    .projetos {
+        top: 0; /* Ajuste o posicionamento para evitar sobreposição */
+    }
+    
+    .title-eu {
+        font-size: 2.5rem !important;
+    }
 
   .tech-grid {
     display: grid;
@@ -135,6 +136,14 @@
   .title-eu {
     font-size: 2rem !important;
   }
+
+.section-container {
+    padding: 0 1rem;
+    margin: 0 auto;
+    max-width: 1200px;
+    margin-bottom: 50px; /* Adicione um espaçamento inferior */
+  }
+  
 
   .subtitle-eu {
     margin-top: 10px;
@@ -161,6 +170,20 @@
     padding: 0 1rem;
   }
 
+  .consultoria-form h2 {
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.consultoria-form p {
+    color: var(--color-text);
+    text-align: center;
+    font-size: 0.75rem;
+    margin-bottom: var(--spacing-md);
+}
+
     .footer-logo img {
         margin-bottom: 10px;
       max-width: 100px;
@@ -186,7 +209,7 @@
       height: auto;
       padding: 40px 20px;
     }
-}
+  }
 
 /* <= 576px: Celulares médios */
 @media (max-width: 576px) {
